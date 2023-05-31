@@ -13,12 +13,13 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
-has_many(:characters, {:class_name => "Character", :foreing_key => "movie_id"})
-  def characters
-  my_id = self.id
+has_many :characters
+belongs_to :director
+  #def characters
+  #my_id = self.id
 
-  return Character.where({:movie_id => my_id})
-end 
+  #return Character.where({:movie_id => my_id})
+#end 
 
   def director
     key = self.director_id
